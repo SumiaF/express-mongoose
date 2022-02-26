@@ -10,14 +10,11 @@ const Product = require("./models/product");
 app.use(express.urlencoded({ extended: true }));
 
 const port = process.env.PORT || 8080;
-console.log(process.env.MONGO_URI);
 
 const categories = ["vegetable", "fruit", "dairy", "baked product"];
 //Connecting to mongo
 mongoose
-  .connect(
-    "mongodb+srv://m001-student:m001-mongodb-basics@sandbox.mxzab.mongodb.net/myShop?retryWrites=true&w=majority"
-  )
+  .connect(MONGO_URI)
   .then(() => {
     console.log("Connection to mongo established");
   })
