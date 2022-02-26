@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>New Product</title>
+  </head>
+  <body>
+    <h1>New Product</h1>
+
+    <form action="/products" method="post">
+      <label for="p_name">Enter the product</label>
+      <input type="text" name="name" id="p_name" />
+      <label for="p_price">Please enter the price</label>
+      <input type="number" name="price" id="p_price" />
+      <label for="p_category">Choose the category</label>
+      <select name="category" id="p_category">
+        <% categories.forEach(category => { %>
+        <option value="<%= category%>"><%= category%></option>
+        <% }) %>
+      </select>
+      <button>Add Product</button>
+    </form>
+  </body>
+</html>
