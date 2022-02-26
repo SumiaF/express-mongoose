@@ -2,13 +2,14 @@ const express = require("express");
 const app = express();
 const path = require("path");
 const mongoose = require("mongoose");
-require ("dotenv").config();
+require("dotenv").config();
 const methodOverride = require("method-override");
 app.use(methodOverride("_method"));
 //Product model
 const Product = require("./models/product");
 app.use(express.urlencoded({ extended: true }));
 
+const port = process.env.PORT || 8080;
 console.log(process.env.MONGO_URI);
 
 const categories = ["vegetable", "fruit", "dairy", "baked product"];
@@ -67,7 +68,7 @@ app.put("/products/:id", async (req, res) => {
   res.redirect(`/products/${id}`);
 });
 
-app.listen(8080, () => {
+app.listen(port, () => {
   console.log("I am listning");
 });
 
