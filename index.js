@@ -14,7 +14,7 @@ const port = process.env.PORT || 8080;
 const categories = ["vegetable", "fruit", "dairy", "baked product"];
 //Connecting to mongo
 mongoose
-  .connect(MONGO_URI)
+  .connect(process.env.MONGO_URI)
   .then(() => {
     console.log("Connection to mongo established");
   })
